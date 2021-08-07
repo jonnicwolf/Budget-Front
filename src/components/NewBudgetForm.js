@@ -36,25 +36,9 @@ const NewBudgetForm = () => {
                 />
 
                 <input type="button" value="Submit" />
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
             </form>
         </div>
     )
-}
+};
 
-export default NewBudgetForm
+export default NewBudgetForm;

@@ -2,9 +2,10 @@ import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { apiURL } from '../util/apiURL'
+import { v4 as uuidv4 } from 'uuid';
 import Transaction from './Transaction.js'
 
-const API = apiURL();
+const API = require('../models/transactions.js');
 
 const Transactions = () => {
     const [transactions, setTransactions] = useState([]);
@@ -21,12 +22,12 @@ const Transactions = () => {
     }, []);
     return (
         <section className='transactions'>
-            <ul>
-                {transactions.map(transaction =>
-                    <Transaction
-                        key={transaction.key}
-                        transaction={transaction} />)};
-            </ul>
+            {transactions.map(
+                transaction =>
+                <Transaction
+                    key={uuidv4()}
+                    transaction={transaction} />
+            )}
         </section>
     )
 };

@@ -2,7 +2,6 @@ import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { apiURL } from '../util/apiURL'
-import { v4 as uuidv4 } from 'uuid';
 import Transaction from './Transaction.js'
 
 const API = apiURL();
@@ -23,10 +22,11 @@ const Transactions = () => {
     return (
         <section className='transactions'>
             {transactions.map(
-                transaction =>
+                (transaction, index) =>
                 <Transaction
-                    key={uuidv4()}
-                    transaction={transaction} />
+                        key={index}
+                        transaction={transaction}
+                        index={index} />
             )}
         </section>
     )

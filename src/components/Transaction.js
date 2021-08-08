@@ -1,9 +1,13 @@
-const Transaction = ({ transaction }) => {
+import { Link } from 'react-router-dom';
+const Transaction = ({ transaction, index }) => {
     return (
         <>
-            {transaction.date}
-            {transaction.name}
-            {transaction.amount}
+            <Link to={`/transactions/${index}`}>
+                <div>{transaction.date}</div>
+            </Link>
+            <div>{transaction.name}</div>
+            <div>{transaction.amount}</div>
+            <div>{transaction.from}</div>
         </>
     )
 }

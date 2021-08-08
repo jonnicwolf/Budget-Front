@@ -1,7 +1,7 @@
-import Budgets from '../components/Transactions.js'
+import Transactions from '../components/Transactions.js'
 
 const Index = () => {
-    return <Budgets />
-}
+    return <Transactions />
+};
 
 export default Index;

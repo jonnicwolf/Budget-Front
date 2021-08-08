@@ -5,7 +5,7 @@ import { apiURL } from '../util/apiURL'
 import { v4 as uuidv4 } from 'uuid';
 import Transaction from './Transaction.js'
 
-const API = require('../models/transactions.js');
+const API = apiURL();
 
 const Transactions = () => {
     const [transactions, setTransactions] = useState([]);

@@ -8,15 +8,15 @@ const API = apiURL()
 const TransactionDetails = () => {
     [oneTransaction, setOneTransaction] = useState([]);
 
-    const { id } = useParams();
+    const { index } = useParams();
     let history = useHistory();
 
     useEffect(() => {
         axios
-            .get(`${API}/transactions/${id}`)
+            .get(`${API}/transactions/${index}`)
             .then(
                 response =>
-                    setOneTransaction(response.data.payload))
+                    setOneTransaction(response.data))
             .catch(e => {
                 console.error(e)
                 history.push("/not-found");
@@ -24,10 +24,12 @@ const TransactionDetails = () => {
     }, []);
     return (
         <div>
-            {oneTransaction.date}:{oneTransaction.name}:{oneTransaction.amount}:
-            {oneTransaction.from}
+            <h1>{oneTransaction.name}</h1>
+            <div>
+                {oneTransaction.date}{oneTransaction.amount}{oneTransaction.from}
+            </div>
         </div>
     )
-}
+};
 
-export default TransactionDetails
+export default TransactionDetails;

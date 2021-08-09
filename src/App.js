@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react'
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 
 import Navbar from './components/Navbar.js';
@@ -31,26 +31,27 @@ const App = () => {
       <Navbar />
       <Switch>
         
-        <Router
+        <Route
           exact path='/'>
           <Home />
-        </Router>
+        </Route>
 
-        <Router
-          path='/transactions'>
-          <Index transactions={transactions}/>
-        </Router>
-
-        <Router
-          path='/transactions/:index'>
-          <Show />
-        </Router>
-
-        <Router path='/new'>
+        <Route path='/new'>
           <New />
-        </Router>
-        
+        </Route>
+
+        <Route
+          path="/transactions/:index">
+          <Show />
+        </Route>
+
+        <Route
+          exact path="/transactions">
+          <Index transactions={transactions}/>
+          {/* <Index /> */}
+        </Route>
       </Switch>
+      
     </div>
   )
 }

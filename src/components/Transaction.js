@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
+
 const Transaction = ({ transaction, index }) => {
+    console.log(transaction)
     return (
         <>
             <Link to={`/transactions/${index}`}>
@@ -10,6 +12,6 @@ const Transaction = ({ transaction, index }) => {
             <div>{transaction.from}</div>
         </>
     )
-}
+};
 
 export default Transaction;

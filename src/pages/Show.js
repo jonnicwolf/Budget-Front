@@ -1,4 +1,4 @@
-import TransactionDetails from '../components/Transaction.js'
+import TransactionDetails from '../components/TransactionDetails.js'
 const Show = () => {
     return <TransactionDetails />
 }

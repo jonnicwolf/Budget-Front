@@ -1,6 +1,6 @@
-import React, { useEffect, useState} from 'react'
+// import React, { useEffect, useState} from 'react'
 import { BrowserRouter as Route, Switch } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 
 import Navbar from './components/Navbar.js';
 
@@ -13,19 +13,19 @@ import { apiURL } from './util/apiURL'
 const API = apiURL()
 
 const App = () => {
-  const [transactions, setTransactions] = useState([]);
+  // const [transactions, setTransactions] = useState([]);
 
-   useEffect(() => {
-        axios
-            .get(`${API}/transactions`)
-            .then(
-                response =>
-                    setTransactions(response.data),
-                error =>
-                    console.log("get", error)
-            )
-            .catch((c) => console.warn("catch", c));
-    }, []);
+  //  useEffect(() => {
+  //       axios
+  //           .get(`${API}/transactions`)
+  //           .then(
+  //               response =>
+  //                   setTransactions(response.data),
+  //               error =>
+  //                   console.log("get",+ error)
+  //           )
+  //           .catch((c) => console.warn("catch", c));
+  //   }, []);
   return (
     <div>
       <Navbar />
@@ -41,15 +41,16 @@ const App = () => {
         </Route>
 
         <Route
+          exact path="/transactions">
+          {/* <Index transactions={transactions}/> */}
+          <Index />
+        </Route>
+        
+        <Route
           path="/transactions/:index">
           <Show />
         </Route>
 
-        <Route
-          exact path="/transactions">
-          <Index transactions={transactions}/>
-          {/* <Index /> */}
-        </Route>
       </Switch>
       
     </div>

@@ -1,27 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import { apiURL } from '../util/apiURL';
-import axios from "axios"
+import axios from "axios";
 
 const API = apiURL()
 
 const TransactionDetails = () => {
-    [oneTransaction, setOneTransaction] = useState([]);
-
+    const [oneTransaction, setOneTransaction] = useState([]);
+    
     const { index } = useParams();
-    let history = useHistory();
+    const history = useHistory();
 
     useEffect(() => {
         axios
             .get(`${API}/transactions/${index}`)
             .then(
-                response =>
-                    setOneTransaction(response.data))
-            .catch(e => {
+                (response) => {
+                    console.log(typeof response)
+                    setOneTransaction(response.data)
+                })
+            .catch(
+                e => {
                 console.error(e)
-                history.push("/not-found");
+                history.push(`/transactions`)
             });
-    }, []);
+    }, [index, history]);
+    console.log(index)
     return (
         <div>
             <h1>{oneTransaction.name}</h1>
@@ -32,4 +37,4 @@ const TransactionDetails = () => {
     )
 };
 
-export default TransactionDetails;
+export default withRouter(TransactionDetails);

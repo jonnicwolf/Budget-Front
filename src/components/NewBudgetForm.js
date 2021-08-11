@@ -1,4 +1,14 @@
+import React, { useState, useEffect } from 'react';
+
 const NewBudgetForm = () => {
+    const [form, setForm] = useState({
+        date: '',
+        name: '',
+        amount: 0,
+        from: ''
+    })
+
+    // handleChange_String = () => { }
     return (
         <div>
             <form >

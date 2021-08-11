@@ -8,7 +8,10 @@ const NewBudgetForm = () => {
         from: ''
     })
 
-    // handleChange_String = () => { }
+    // handleChange_String = (e) => {
+    // e.preventDefault()
+    
+    //  }
     return (
         <div>
             <form >

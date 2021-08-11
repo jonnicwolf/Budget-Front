@@ -17,8 +17,8 @@ const TransactionDetails = () => {
             .get(`${API}/transactions/${index}`)
             .then(
                 (response) => {
-                    console.log(typeof response)
-                    setOneTransaction(response.data)
+                    const { data } = response
+                    setOneTransaction(data)
                 })
             .catch(
                 e => {
